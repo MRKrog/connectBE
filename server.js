@@ -47,6 +47,10 @@ app.locals.pets = [
 //   }
 // }
 
+app.get('/', (request, response) => {
+  response.status(201).json('Hello World!')
+});
+
 app.get('/api/v1/resource', (request, response) => {
   response.status(201).json(app.locals.pets)
 });
