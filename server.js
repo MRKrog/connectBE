@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+const host = '0.0.0.0';
+const port = process.env.PORT || 3001;
+
 // add CORS
 const cors = require('cors');
 
@@ -8,7 +11,7 @@ const cors = require('cors');
 app.use(cors());
 
 
-app.set('port', process.env.NODE_ENV || 3001)
+
 
 // const cors = require('cors')
 // app.use(express.json());
@@ -48,7 +51,7 @@ app.locals.pets = [
 // }
 
 app.get('/', (request, response) => {
-  response.status(201).json('Hello World!')
+  response.status(201).json('Hello World')
 });
 
 app.get('/api/v1/resource', (request, response) => {
@@ -61,4 +64,6 @@ app.get('/api/v1/resource', (request, response) => {
 
 
 
-app.listen(app.get('port'), () => console.log(`Our app is running on port ${app.get('port')}`))
+app.listen(port, host, function() {
+  console.log("Server started.......");
+});
